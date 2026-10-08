@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Feronika Liana — Web Development, Artificial Intelligence, Cloud Computing."
+  >
+
+  <meta name="theme-color" content="#f3f1ec">
+
+  <title>Feronika Liana — Web Development × AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =====================================================
+       HERO PROFILE
+    ===================================================== */
+
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visual-backdrop {
+      position: absolute;
+      width: 76%;
+      height: 87%;
+      top: 5%;
+      right: 5%;
+      border-radius: 34% 38% 28% 30%;
+      background: linear-gradient(
+        145deg,
+        #dfe3dc 0%,
+        #d1d6cf 48%,
+        #bec6bf 100%
+      );
+      transform: rotate(4deg);
+      z-index: 0;
+    }
+
+    .portrait-frame {
+      position: absolute;
+      width: 70%;
+      height: 91%;
+      top: 3%;
+      right: 13%;
+      overflow: hidden;
+      background: #d8d7d0;
+      border-radius: 10px 72px 10px 72px;
+      box-shadow: 20px 25px 45px rgba(11,13,15,.09);
+      z-index: 2;
+    }
+
+    .portrait-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 2;
+    }
+
+    .photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      background: linear-gradient(145deg,#d9d7d0,#b5bbb4);
+      color: #77756e;
+      z-index: 1;
+    }
+
+    .photo-fallback span {
+      font-family: var(--display);
+      font-size: 90px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .photo-fallback small {
+      margin-top: 8px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .18em;
+    }
+
+    .profile-card {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 15px 35px rgba(11,13,15,.13);
+      z-index: 8;
+    }
+
+    .profile-current {
+      top: 9%;
+      right: 4%;
+      width: 158px;
+      min-height: 132px;
+      padding: 17px 19px;
+      background: #080b0d;
+      color: #f6f6f1;
+      transform: rotate(2deg);
+    }
+
+    .profile-current .profile-card-label {
+      margin-bottom: 11px;
+      color: #b7ff5a;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+
+    .profile-current strong {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.045em;
+    }
+
+    .profile-current small {
+      margin-top: 14px;
+      color: #989b96;
+      font-size: 10px;
+    }
+
+    .profile-focus {
+      left: 3%;
+      bottom: 11%;
+      width: 126px;
+      min-height: 104px;
+      padding: 14px 17px;
+      background: #b7ff5a;
+      color: #11140f;
+      transform: rotate(-3deg);
+    }
+
+    .profile-focus .profile-card-label {
+      margin-bottom: 9px;
+      color: #65763f;
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: .15em;
+    }
+
+    .profile-focus strong {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .profile-focus small {
+      margin-top: 10px;
+      color: #52633d;
+      font-size: 9px;
+    }
+
+    .portrait-caption {
+      position: absolute;
+      left: 17%;
+      bottom: 4%;
+      width: 255px;
+      min-height: 70px;
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(250,249,245,.98);
+      color: #0b0d0f;
+      border: 1px solid rgba(11,13,15,.08);
+      border-radius: 5px;
+      box-shadow: 0 15px 30px rgba(11,13,15,.13);
+      z-index: 12;
+    }
+
+    .portrait-caption span {
+      display: block;
+      color: #77756e;
+      font-family: var(--display);
+      font-size: 7px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: .16em;
+    }
+
+    .portrait-caption strong {
+      display: block;
+      color: #0b0d0f;
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.035em;
+      white-space: nowrap;
+    }
+
+    .portrait-index {
+      position: absolute;
+      right: 1%;
+      bottom: 4%;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #777b75;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      z-index: 9;
+    }
+
+    .portrait-index span:first-child {
+      color: #111;
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-visual {
+        min-height: 570px;
+      }
+
+      .portrait-frame {
+        width: 73%;
+        right: 10%;
+      }
+
+      .profile-current {
+        right: 2%;
+      }
+
+      .profile-focus {
+        left: 2%;
+      }
+
+      .portrait-caption {
+        left: 14%;
+        width: 245px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-visual {
+        width: min(700px,100%);
+        min-height: 600px;
+        margin: 0 auto;
+      }
+
+      .portrait-frame {
+        width: 70%;
+        height: 88%;
+        right: 13%;
+      }
+
+      .profile-current {
+        top: 8%;
+        right: 4%;
+      }
+
+      .profile-focus {
+        left: 3%;
+        bottom: 10%;
+      }
+
+      .portrait-caption {
+        left: 15%;
+        bottom: 3%;
+        width: 245px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-visual {
+        min-height: 510px;
+        width: 100%;
+      }
+
+      .visual-backdrop {
+        width: 83%;
+        height: 88%;
+        right: 1%;
+      }
+
+      .portrait-frame {
+        width: 78%;
+        height: 89%;
+        right: 6%;
+        border-radius: 8px 52px 8px 52px;
+      }
+
+      .profile-current {
+        top: 7%;
+        right: 1%;
+        width: 125px;
+        min-height: 105px;
+        padding: 12px 14px;
+      }
+
+      .profile-current .profile-card-label {
+        font-size: 7px;
+        margin-bottom: 8px;
+      }
+
+      .profile-current strong {
+        font-size: 15px;
+      }
+
+      .profile-current small {
+        margin-top: 9px;
+        font-size: 8px;
+      }
+
+      .profile-focus {
+        left: 2%;
+        bottom: 11%;
+        width: 105px;
+        min-height: 88px;
+        padding: 11px 13px;
+      }
+
+      .profile-focus .profile-card-label {
+        font-size: 6px;
+        margin-bottom: 7px;
+      }
+
+      .profile-focus strong {
+        font-size: 16px;
+      }
+
+      .profile-focus small {
+        margin-top: 7px;
+        font-size: 8px;
+      }
+
+      .portrait-caption {
+        left: 12%;
+        bottom: 1.5%;
+        width: 205px;
+        min-height: 62px;
+        padding: 11px 14px;
+        gap: 5px;
+      }
+
+      .portrait-caption span {
+        font-size: 6px;
+      }
+
+      .portrait-caption strong {
+        font-size: 12px;
+      }
+
+      .portrait-index {
+        right: 0;
+        bottom: 3%;
+        font-size: 6px;
+      }
+
+      .portrait-index span:first-child {
+        font-size: 10px;
+      }
+    }
+
+
+    /* =====================================================
+       INSTAGRAM WORK DOCUMENTATION
+    ===================================================== */
+
+    .work-documentation {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .documentation-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .documentation-heading span {
+      color: #b7ff5a;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .16em;
+    }
+
+    .documentation-heading small {
+      color: #777b75;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .instagram-item {
+      min-width: 0;
+      overflow: hidden;
+      background: #111416;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .instagram-item .instagram-media {
+      margin: 0 !important;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    @media (max-width:900px) {
+      .instagram-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:620px) {
+      .work-documentation {
+        margin-top: 28px;
+        padding-top: 20px;
+      }
+
+      .documentation-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .instagram-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+
+
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
+
+  <header class="site-header" id="top">
+
+    <a href="#home" class="brand">
+      <span class="brand-mark">FL</span>
+
+      <span class="brand-name">
+        Feronika Liana
+      </span>
+    </a>
+
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+
+      <a href="#about" data-i18n="nav.about">
+        About
+      </a>
+
+      <a href="#experience" data-i18n="nav.experience">
+        Experience
+      </a>
+
+      <a href="#work" data-i18n="nav.work">
+        Work
+      </a>
+
+      <a href="#credentials" data-i18n="nav.credentials">
+        Credentials
+      </a>
+
+      <a href="#contact" data-i18n="nav.contact">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <div class="language-switcher">
+
+      <button
+        type="button"
+        class="language-button active"
+        data-language="id"
+      >
+        ID
+      </button>
+
+      <span>/</span>
+
+      <button
+        type="button"
+        class="language-button"
+        data-language="en"
+      >
+        EN
+      </button>
+
+    </div>
+
+
+    <a
+      href="https://www.linkedin.com/in/feronika-liana/"
+      class="header-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      LinkedIn
+      <span>↗</span>
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero section" id="home">
+
+      <div class="hero-grid">
+
+
+        <div class="hero-copy reveal">
+
+          <p
+            class="kicker"
+            data-i18n="hero.kicker"
+          >
+            WEB DEVELOPMENT · AI · CLOUD
+          </p>
+
+
+          <h1>
+
+            <span
+              class="hero-title-main"
+              data-i18n="hero.titleMain"
+            >
+              Building digital
+            </span>
+
+            <span
+              class="hero-title-italic"
+              data-i18n="hero.titleItalic"
+            >
+              experiences
+            </span>
+
+            <span
+              class="hero-title-main"
+              data-i18n="hero.titleEnd"
+            >
+              with purpose.
+            </span>
+
+          </h1>
+
+
+          <p
+            class="hero-lead"
+            data-i18n="hero.description"
+          >
+            Saya Feronika Liana — lulusan Informatika
+            dengan fokus pada Web Development dan
+            Artificial Intelligence, dengan ketertarikan
+            pada cloud computing serta technology education.
+          </p>
+
+
+          <div class="hero-actions">
+
+            <a
+              href="#work"
+              class="button button-dark"
+            >
+              <span data-i18n="hero.buttonWork">
+                Lihat karya saya
+              </span>
+
+              <span>↗</span>
+            </a>
+
+
+            <a
+              href="https://www.linkedin.com/in/feronika-liana/"
+              class="button button-line"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="hero.buttonLinkedin"
+            >
+              Lihat LinkedIn
+            </a>
+
+          </div>
+
+
+          <div class="hero-facts">
+
+            <div class="hero-fact">
+              <strong>Palembang</strong>
+
+              <span data-i18n="hero.location">
+                Indonesia
+              </span>
+            </div>
+
+
+            <div class="hero-fact">
+              <strong>3.82</strong>
+
+              <span>
+                GPA · Informatics
+              </span>
+            </div>
+
+
+            <div class="hero-fact">
+              <strong>2025</strong>
+
+              <span data-i18n="hero.graduate">
+                Lulusan Sarjana
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO PROFILE -->
+
+        <div class="hero-visual reveal">
+
+          <div class="visual-backdrop"></div>
+
+
+          <div class="portrait-frame">
+
+            <div class="photo-fallback">
+              <span>FL</span>
+              <small>FERONIKA LIANA</small>
+            </div>
+
+            <img
+              src="assets/feronika.png"
+              alt="Foto profesional Feronika Liana"
+              onerror="this.style.display='none'"
+            >
+
+          </div>
+
+
+          <div class="profile-card profile-current">
+
+            <span class="profile-card-label">
+              CURRENT
+            </span>
+
+            <strong>
+              Computer<br>
+              Instructor
+            </strong>
+
+            <small>
+              LKP PalComTech Palembang
+            </small>
+
+          </div>
+
+
+          <div class="profile-card profile-focus">
+
+            <span class="profile-card-label">
+              FOCUS
+            </span>
+
+            <strong>
+              AI × Web
+            </strong>
+
+            <small>
+              Technology
+            </small>
+
+          </div>
+
+
+          <div class="portrait-caption">
+
+            <span>
+              FERONIKA LIANA
+            </span>
+
+            <strong>
+              Web Development · AI
+            </strong>
+
+          </div>
+
+
+          <div class="portrait-index">
+
+            <span>01</span>
+
+            <span data-i18n="hero.profile">
+              PROFILE
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="scroll-cue">
+          <span></span>
+
+          <span data-i18n="hero.scroll">
+            Scroll to explore
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         ABOUT
+    ================================================== -->
+
+    <section class="section about" id="about">
+
+      <div class="section-intro reveal">
+
+        <p
+          class="eyebrow"
+          data-i18n="about.eyebrow"
+        >
+          01 — TENTANG
+        </p>
+
+        <h2>
+
+          <span data-i18n="about.title">
+            Teknologi menjadi berguna ketika
+          </span>
+
+          <br>
+
+          <em data-i18n="about.titleItalic">
+            menyelesaikan sesuatu yang nyata.
+          </em>
+
+        </h2>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-statement reveal">
+
+          <span class="big-number">
+            01
+          </span>
+
+          <p data-i18n="about.statement">
+            Memiliki rasa ingin tahu secara alami,
+            tetapi tetap praktis dalam pendekatan.
+            Saya menikmati proses mengubah konsep
+            teknologi menjadi pengalaman digital
+            yang bermanfaat.
+          </p>
+
+        </div>
+
+
+        <div class="about-copy reveal">
+
+          <p data-i18n="about.paragraph1">
+            Arah profesional saya berada di persimpangan
+            antara web development, artificial intelligence,
+            cloud computing, dan technology education.
+          </p>
+
+          <p data-i18n="about.paragraph2">
+            Pengalaman saya mencakup bekerja sebagai
+            Computer Instructor di PalComTech, mengikuti
+            program Bangkit Academy Cloud Computing,
+            serta mempelajari Basic Artificial Intelligence
+            melalui Celerates × AI4IMPACT.
+          </p>
+
+          <p data-i18n="about.paragraph3">
+            Saya menghargai komunikasi yang jelas,
+            pembelajaran berkelanjutan, dan kolaborasi —
+            terutama ketika teknologi dapat membuat
+            sebuah proses menjadi lebih sederhana.
+          </p>
+
+
+          <a
+            href="https://www.linkedin.com/in/feronika-liana/"
+            class="text-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span data-i18n="about.linkedin">
+              Lihat profil profesional lengkap
+            </span>
+
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         EXPERIENCE
+    ================================================== -->
+
+    <section class="section dark" id="experience">
+
+      <div class="section-intro reveal">
+
+        <p
+          class="eyebrow light"
+          data-i18n="experience.eyebrow"
+        >
+          02 — PENGALAMAN
+        </p>
+
+        <h2>
+
+          <span data-i18n="experience.title">
+            Perjalanan yang dibangun melalui
+          </span>
+
+          <br>
+
+          <em data-i18n="experience.titleItalic">
+            praktik & pembelajaran.
+          </em>
+
+        </h2>
+
+      </div>
+
+
+      <div class="timeline">
+
+
+        <!-- PALCOMTECH -->
+
+        <article class="experience-item reveal">
+
+          <div class="experience-date">
+            JUL 2025 — PRESENT
+          </div>
+
+          <div class="timeline-dot"></div>
+
+          <div class="experience-content">
+
+            <p class="company">
+              PALCOMTECH
+            </p>
+
+            <h3 data-i18n="experience.job1.title">
+              Computer Instructor
+            </h3>
+
+            <p data-i18n="experience.job1.description">
+              Mendukung proses pembelajaran komputer
+              dan teknologi dengan menekankan
+              keterampilan digital yang praktis.
+            </p>
+
+
+            <div class="tags">
+
+              <span data-i18n="tags.education">
+                Pendidikan
+              </span>
+
+              <span data-i18n="tags.technology">
+                Teknologi
+              </span>
+
+              <span data-i18n="tags.training">
+                Pelatihan
+              </span>
+
+            </div>
+
+
+            <!-- WORK DOCUMENTATION -->
+
+            <div class="work-documentation">
+
+              <div class="documentation-heading">
+
+                <span>
+                  WORK DOCUMENTATION
+                </span>
+
+                <small>
+                  PALCOMTECH / 2025 — PRESENT
+                </small>
+
+              </div>
+
+
+              <div class="instagram-grid">
+
+
+                <!-- INSTAGRAM REEL 01 -->
+
+                <div class="instagram-item">
+
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DdBx5MOzGyD/"
+                    data-instgrm-version="14"
+                  >
+                  </blockquote>
+
+                </div>
+
+
+                <!-- INSTAGRAM REEL 02 -->
+
+                <div class="instagram-item">
+
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DcflJG2ThJU/"
+                    data-instgrm-version="14"
+                  >
+                  </blockquote>
+
+                </div>
+
+
+                <!-- INSTAGRAM REEL 03 -->
+
+                <div class="instagram-item">
+
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/Das0gVPTN_i/"
+                    data-instgrm-version="14"
+                  >
+                  </blockquote>
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- BANGKIT -->
+
+        <article class="experience-item reveal">
+
+          <div class="experience-date">
+            SEP 2024 — JAN 2025
+          </div>
+
+          <div class="timeline-dot"></div>
+
+          <div class="experience-content">
+
+            <p class="company">
+              BANGKIT ACADEMY
+            </p>
+
+            <h3 data-i18n="experience.job2.title">
+              Cloud Computing Cohort 2024
+            </h3>
+
+            <p data-i18n="experience.job2.description">
+              Pengalaman pembelajaran intensif di bidang
+              cloud computing, kolaborasi, komunikasi,
+              dan inovasi melalui program yang dipimpin
+              oleh Google.
+            </p>
+
+            <div class="tags">
+
+              <span>
+                Google Cloud
+              </span>
+
+              <span>
+                Cloud Computing
+              </span>
+
+              <span data-i18n="tags.collaboration">
+                Kolaborasi
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- CELERATES -->
+
+        <article class="experience-item reveal">
+
+          <div class="experience-date">
+            FEB 2024 — JUN 2024
+          </div>
+
+          <div class="timeline-dot"></div>
+
+          <div class="experience-content">
+
+            <p class="company">
+              CELERATES × AI4IMPACT
+            </p>
+
+            <h3 data-i18n="experience.job3.title">
+              Basic Artificial Intelligence Student
+            </h3>
+
+            <p data-i18n="experience.job3.description">
+              Mempelajari konsep dasar AI dan mengerjakan
+              proyek akhir praktis sebagai bagian dari
+              program studi independen Kampus Merdeka.
+            </p>
+
+            <div class="tags">
+
+              <span>
+                Artificial Intelligence
+              </span>
+
+              <span data-i18n="tags.machineLearning">
+                Machine Learning
+              </span>
+
+              <span data-i18n="tags.project">
+                Proyek
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         WORK
+    ================================================== -->
+
+    <section class="section work" id="work">
+
+      <div class="section-intro split reveal">
+
+        <div>
+
+          <p
+            class="eyebrow"
+            data-i18n="work.eyebrow"
+          >
+            03 — KARYA TERPILIH
+          </p>
+
+          <h2>
+
+            <span data-i18n="work.title">
+              Dari pembelajaran menjadi
+            </span>
+
+            <br>
+
+            <em data-i18n="work.titleItalic">
+              karya.
+            </em>
+
+          </h2>
+
+        </div>
+
+
+        <p data-i18n="work.introduction">
+          Pilihan karya dan arah teknis dari perjalanan
+          profesional saya. Tujuannya sederhana:
+          teknologi yang bermanfaat, antarmuka yang
+          jelas, dan hasil yang dapat diterapkan.
+        </p>
+
+      </div>
+
+
+      <!-- BRAWIJAYA HEALTHCARE BOT -->
+
+      <article class="featured-project reveal">
+
+        <div class="project-image healthcare-image">
+
+          <a
+            href="https://app.smojo.org/fourshe/brawijaya-healtcare-bot"
+            class="project-image-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Buka Brawijaya Healthcare Bot"
+          >
+
+            <img
+              src="assets/brawijayabot.jpeg"
+              alt="Brawijaya Healthcare Bot"
+              class="brawijaya-project-image"
+            >
+
+            <div class="project-image-overlay">
+              <span>OPEN PROJECT</span>
+              <strong>↗</strong>
+            </div>
+
+          </a>
+
+
+          <div class="project-image-label">
+            AI / HEALTHCARE
+          </div>
+
+        </div>
+
+
+        <div class="featured-copy">
+
+          <p class="project-index">
+            01 / FINAL PROJECT
+          </p>
+
+          <h3>
+            Brawijaya
+            <br>
+            <em>Healthcare Bot</em>
+          </h3>
+
+          <p data-i18n="work.projectDescription">
+            Proyek chatbot yang dikembangkan sebagai
+            proyek akhir program Celerates × AI4IMPACT
+            Basic Artificial Intelligence, dengan
+            tantangan membuat asisten awal untuk
+            kebutuhan dokter dan rumah sakit.
+          </p>
+
+          <div class="project-meta">
+
+            <span>2024</span>
+            <span>Artificial Intelligence</span>
+            <span>Chatbot</span>
+
+          </div>
+
+
+          <a
+            href="https://app.smojo.org/fourshe/brawijaya-healtcare-bot"
+            class="text-link light-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <span data-i18n="work.context">
+              Gunakan Aplikasi
+            </span>
+
+            <span>↗</span>
+
+          </a>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SKILLS
+    ================================================== -->
+
+    <section class="section dark skills" id="skills">
+
+      <div class="section-intro reveal">
+
+        <p
+          class="eyebrow light"
+          data-i18n="skills.eyebrow"
+        >
+          04 — KEAHLIAN
+        </p>
+
+        <h2>
+
+          <span data-i18n="skills.title">
+            Tools, konsep,
+          </span>
+
+          <br>
+
+          <em data-i18n="skills.titleItalic">
+            dan rasa ingin tahu.
+          </em>
+
+        </h2>
+
+      </div>
+
+
+      <div class="skills-list">
+
+        <div class="skill-row reveal">
+
+          <span>01</span>
+
+          <strong data-i18n="skills.web">
+            Web Development
+          </strong>
+
+          <small>
+            Frontend · Backend · Responsive UI
+          </small>
+
+        </div>
+
+
+        <div class="skill-row reveal">
+
+          <span>02</span>
+
+          <strong data-i18n="skills.ai">
+            Artificial Intelligence
+          </strong>
+
+          <small>
+            AI Fundamentals · Machine Learning
+          </small>
+
+        </div>
+
+
+        <div class="skill-row reveal">
+
+          <span>03</span>
+
+          <strong data-i18n="skills.cloud">
+            Cloud Computing
+          </strong>
+
+          <small>
+            Google Cloud · Cloud Foundations
+          </small>
+
+        </div>
+
+
+        <div class="skill-row reveal">
+
+          <span>04</span>
+
+          <strong data-i18n="skills.programming">
+            Programming & Data
+          </strong>
+
+          <small>
+            Python · R · SQL
+          </small>
+
+        </div>
+
+
+        <div class="skill-row reveal">
+
+          <span>05</span>
+
+          <strong data-i18n="skills.education">
+            Technology Education
+          </strong>
+
+          <small>
+            Instruction · Communication · Mentoring
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+        CREDENTIALS
+    ================================================== -->
+
+    <section class="section credentials" id="credentials">
+
+    <div class="section-intro split reveal">
+
+        <div>
+
+        <p
+            class="eyebrow"
+            data-i18n="credentials.eyebrow"
+        >
+            05 — KREDENSIAL
+        </p>
+
+        <h2>
+
+            <span data-i18n="credentials.title">
+            Bukti dari
+            </span>
+
+            <br>
+
+            <em data-i18n="credentials.titleItalic">
+            pembelajaran berkelanjutan.
+            </em>
+
+        </h2>
+
+        </div>
+
+
+        <p data-i18n="credentials.description">
+        Pilihan sertifikasi dan kredensial pembelajaran
+        yang tercantum dalam profil profesional saya.
+        </p>
+
+    </div>
+
+
+    <div class="credential-grid">
+
+        <!-- GOOGLE CLOUD -->
+        <article class="credential reveal">
+        <a
+            href="https://edu.google.accredible.com/89412092-188c-4220-ac25-2ffcaf074e68"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>GOOGLE</span>
+
+            <h3>
+            Google Cloud Computing Foundations Certificate
+            </h3>
+
+            <small>
+            Issued October 2024
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- DQLAB PYTHON -->
+        <article class="credential reveal">
+        <a
+            href="https://academy.dqlab.id/Certificate_check/result/DQLABSQLT1JPHPGG#mycertificate"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>DQLAB</span>
+
+            <h3>
+            Python Fundamental for Data Science
+            </h3>
+
+            <small>
+            Issued June 2024
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- DQLAB R -->
+        <article class="credential reveal">
+        <a
+            href="https://academy.dqlab.id/Certificate_check/result/DQLABINTR1WPCRMG#mycertificate"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>DQLAB</span>
+
+            <h3>
+            R Fundamental for Data Science
+            </h3>
+
+            <small>
+            Issued June 2024
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- DQLAB SQL -->
+        <article class="credential reveal">
+        <a
+            href="https://academy.dqlab.id/Certificate_check/result/DQLABSQLT1JPHPGG#mycertificate"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>DQLAB</span>
+
+            <h3>
+            Fundamental SQL Using SELECT Statement
+            </h3>
+
+            <small>
+            Issued June 2024
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- DICODING AI -->
+        <article class="credential reveal">
+        <a
+            href="https://www.dicoding.com/certificates/1RXY2W079XVM"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>DICODING</span>
+
+            <h3>
+            Belajar Dasar AI
+            </h3>
+
+            <small>
+            Issued November 2024
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- DICODING GOOGLE CLOUD -->
+        <article class="credential reveal">
+        <a
+            href="https://www.dicoding.com/certificates/1OP84MDDVZQK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>DICODING</span>
+
+            <h3>
+            Menjadi Google Cloud Engineer
+            </h3>
+
+            <small>
+            Issued November 2024
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- AI4IMPACT -->
+        <article class="credential reveal">
+        <a
+            href="https://edu.google.accredible.com/89412092-188c-4220-ac25-2ffcaf074e68"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>Gemini Certified Educator</span>
+
+            <h3>
+            Gemini Certified Educator
+            </h3>
+
+            <small>
+            Issued January 2029
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+
+        <!-- R AI DQLAB -->
+        <article class="credential reveal">
+        <a
+            href="https://academy.dqlab.id/Certificate_check/result/DQLABINTR1WPCRMG"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credential-link"
+        >
+            <span>Guide to Learn R with AI</span>
+
+            <h3>
+            Guide to Learn R with AI
+            </h3>
+
+            <small>
+            Badge shared on LinkedIn
+            <b>↗</b>
+            </small>
+        </a>
+        </article>
+
+    </div>
+
+    </section>
+
+    <!-- ==================================================
+         EDUCATION
+    ================================================== -->
+
+    <section class="section education" id="education">
+
+      <div class="section-intro reveal">
+
+        <p
+          class="eyebrow"
+          data-i18n="education.eyebrow"
+        >
+          06 — PENDIDIKAN
+        </p>
+
+        <h2 data-i18n="education.title">
+          Fondasi akademik.
+        </h2>
+
+      </div>
+
+
+      <div class="education-card reveal">
+
+        <div>
+
+          <span>
+            2021 — 2025
+          </span>
+
+          <h3>
+            Institut Teknologi dan Bisnis PalComTech
+          </h3>
+
+          <p data-i18n="education.degree">
+            Sarjana — Informatika
+          </p>
+
+        </div>
+
+
+        <div class="gpa">
+
+          <strong>
+            3.82
+          </strong>
+
+          <span>
+            GPA
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CONTACT
+    ================================================== -->
+
+    <section class="contact section" id="contact">
+
+      <div class="contact-inner reveal">
+
+        <p
+          class="eyebrow"
+          data-i18n="contact.eyebrow"
+        >
+          07 — MARI TERHUBUNG
+        </p>
+
+        <h2>
+
+          <span data-i18n="contact.title">
+            Punya ide?
+          </span>
+
+          <br>
+
+          <em data-i18n="contact.titleItalic">
+            Mari berdiskusi.
+          </em>
+
+        </h2>
+
+
+        <p data-i18n="contact.description">
+          Terbuka untuk berdiskusi mengenai teknologi,
+          web development, AI, pendidikan,
+          dan proyek kolaboratif.
+        </p>
+
+
+        <a
+          href="https://www.linkedin.com/in/feronika-liana/"
+          class="button button-dark"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span data-i18n="contact.button">
+            Mulai percakapan
+          </span>
+
+          <span>↗</span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
+
+  <footer class="site-footer">
+
+    <span>
+      © 2026 Feronika Liana
+    </span>
+
+    <span data-i18n="footer.tagline">
+      Web Development · AI · Cloud Computing
+    </span>
+
+    <a
+      href="#top"
+      data-i18n="footer.top"
+    >
+      Kembali ke atas ↑
+    </a>
+
+  </footer>
+
+
+  <!-- INSTAGRAM EMBED -->
+  <script async src="https://www.instagram.com/embed.js"></script>
+
+  <!-- MAIN SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
