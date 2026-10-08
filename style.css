@@ -3512,16 +3512,15 @@ button {
 }
 
 .instagram-item {
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--surface);
+    min-width: 0;
+    overflow: hidden;
+    background: #111416;
+    border: 1px solid rgba(255,255,255,.08);
 }
 
 .instagram-item .instagram-media {
-  margin: 0 !important;
-  width: 100% !important;
-  min-width: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
 }
 
 /* Tablet */
