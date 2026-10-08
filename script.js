@@ -985,3 +985,17 @@ document
     );
 
   });
+
+// Re-process Instagram embeds after page initialization
+    if (window.instgrm) {
+        window.instgrm.Embeds.process();
+}
+function processInstagramEmbeds() {
+    if (window.instgrm && window.instgrm.Embeds) {
+        window.instgrm.Embeds.process();
+    }
+}
+
+window.addEventListener("load", () => {
+    processInstagramEmbeds();
+});
