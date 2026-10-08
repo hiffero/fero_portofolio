@@ -646,7 +646,7 @@ function translateStaticContent(language) {
         ? "Technology"
         : "Teknologi",
 
-    ".work-documentation":
+    ".documentation-heading span":
       isEnglish
         ? "WORK DOCUMENTATION"
         : "DOKUMENTASI KARYA",
